@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Asterixis">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#64ffda">
+    <title>Asterixis Detector</title>
+    <link rel="stylesheet" href="styles.css?v=5.1">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Asterixis Detector</h1>
+            <div class="version-tag">v5.1 — fingertip-focused Grade 1 sensitivity (2026-04-07)</div>
+            <div class="status-bar">
+                <span id="fps-display">FPS: --</span>
+                <span id="hand-status">Hands: --</span>
+                <span id="motion-status" class="motion-idle">Motion: --</span>
+            </div>
+        </header>
+
+        <!-- Video Container -->
+        <div class="video-container">
+            <video id="video" playsinline autoplay muted webkit-playsinline="true" x5-playsinline="true"></video>
+            <canvas id="canvas"></canvas>
+            <div id="loading-overlay" class="loading-overlay">
+                <div class="spinner"></div>
+                <p id="loading-text">Initializing...</p>
+            </div>
+        </div>
+
+        <!-- Result Panel -->
+        <div class="result-panel">
+            <div class="result-main">
+                <div id="detection-result" class="detection-result normal">
+                    <span class="result-label">Ready</span>
+                </div>
+                <div class="severity-container">
+                    <div class="severity-label">Severity Score</div>
+                    <div class="severity-bar-container">
+                        <div id="severity-bar" class="severity-bar" style="width: 0%"></div>
+                    </div>
+                    <div id="severity-value" class="severity-value">--</div>
+                </div>
+            </div>
+
+            <!-- Severity History Sparkline -->
+            <div class="history-container">
+                <canvas id="history-canvas" height="40"></canvas>
+            </div>
+
+            <div class="grade-indicator">
+                <div class="grade-item" id="grade-normal">
+                    <div class="grade-dot normal"></div>
+                    <span>Normal</span>
+                </div>
+                <div class="grade-item" id="grade-1">
+                    <div class="grade-dot grade1"></div>
+                    <span>Grade 1</span>
+                </div>
+                <div class="grade-item" id="grade-2">
+                    <div class="grade-dot grade2"></div>
+                    <span>Grade 2</span>
+                </div>
+                <div class="grade-item" id="grade-3">
+                    <div class="grade-dot grade3"></div>
+                    <span>Grade 3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="start-btn" class="btn btn-primary" disabled>Loading...</button>
+            <button id="switch-camera-btn" class="btn btn-secondary">Switch Camera</button>
+        </div>
+
+        <!-- Info Panel -->
+        <div class="info-panel">
+            <p><strong>Instructions:</strong></p>
+            <ul>
+                <li>Hold both hands in front of the camera</li>
+                <li>Extend wrists (dorsiflexion position)</li>
+                <li>Keep palms facing the camera</li>
+                <li>Wait for buffer to fill, then see result</li>
+            </ul>
+            <p class="disclaimer">For research purposes only. Not a medical device.</p>
+        </div>
+    </div>
+
+    <!-- Load scripts in order -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/hands.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1675466862/camera_utils.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3.1675466124/drawing_utils.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.17.3/dist/ort.min.js"></script>
+    <script src="app.js?v=5.1"></script>
+</body>
+</html>

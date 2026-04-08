@@ -1,0 +1,19 @@
+{
+  "name": "Asterixis Detector",
+  "short_name": "Asterixis",
+  "description": "Real-time asterixis detection using AI (v5.0, 208-video model)",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1a1a2e",
+  "theme_color": "#64ffda",
+  "categories": ["medical", "health"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%2364ffda' width='100' height='100' rx='20'/><text x='50' y='65' font-size='50' text-anchor='middle' fill='%231a1a2e'>A</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

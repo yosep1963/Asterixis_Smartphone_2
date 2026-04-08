@@ -1,0 +1,34 @@
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # HTTPS 필수 (카메라 접근용)
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    # 카메라, 마이크 권한 허용
+    Permissions-Policy = "camera=*, microphone=*"
+    # CORS 허용
+    Access-Control-Allow-Origin = "*"
+    # 보안 헤더
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/*.onnx"
+  [headers.values]
+    Content-Type = "application/octet-stream"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Content-Type = "application/javascript"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Content-Type = "text/css"
+    Cache-Control = "public, max-age=3600"

@@ -1,0 +1,16 @@
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Permissions-Policy: camera=*, microphone=*
+  Access-Control-Allow-Origin: *
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+
+/*.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/*.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/*.onnx
+  Content-Type: application/octet-stream
+  Cache-Control: public, max-age=31536000, immutable
